@@ -9,8 +9,8 @@ var Mongoose = require('mongoose');
 
 var Storage = React.createClass({
 render: function(){
-	historyList = this.props.map(function(data){
-                        return <li>{data.name}-{data.location.lat},{data.location.lng}</li>);
+	var historyList = this.props.storage2.map(function(data){
+                        return <li><p>{data.location}</p></li>);
 
 
 	return{
@@ -21,9 +21,9 @@ render: function(){
 		<div className="panel-body text-center">
 		<ul class = "list-group">
 			
-			<li class='list-group-item'><p>{this.p}     {this.props.address}</p></li>
+			{historyList}
 						
-						
+		</ul>		
 		</div>
 	</div>
 })
