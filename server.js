@@ -10,7 +10,7 @@ var app = express();
 app.use(express.static("public"));
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://heroku_bbjr6crw:8nr9iaq3m4ebjtl5i5nvuqj3m5@ds133378.mlab.com:33378/heroku_bbjr6crw  ");
+mongoose.connect("mongodb://heroku_bbjr6crw:8nr9iaq3m4ebjtl5i5nvuqj3m5@ds133378.mlab.com:33378/heroku_bbjr6crw");
 var db = mongoose.connection;
 
 // Show any mongoose errors
