@@ -1,6 +1,8 @@
 var express = require('express');
 var mongoose = require("mongoose");
 
+var Storage = require("./app/models/storage2.js");
+
 // Initialize Express
 var app = express();
 
@@ -19,6 +21,19 @@ db.on("error", function(error) {
 // Once logged in to the db through mongoose, log a success message
 db.once("open", function() {
   console.log("Mongoose connection successful.");
+});
+
+//======================================================================
+// Router
+//======================================================================
+app.get('/api', function(req, res) {
+  Storage.find().lean().sort({ createdAt: -1}).exec({}, function(error, history) {
+    if (error){
+      reject(Error(error));
+    }else {
+      res.send(history);
+    }
+  });
 });
 
 //======================================================================

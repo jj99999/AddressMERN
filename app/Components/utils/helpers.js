@@ -18,12 +18,23 @@ var helpers = {
 			.then(function(response){
 
 				console.log(response);
-				return response.data.results[0].formatted;
-		})
+
+				var result = response.data.results[0].formatted;
+
+				var dbResult = new Storage(result);
+
+				dbResult.save(function(error, doc){
+					if(error){
+						console.log(error);
+					}
+				});
+
+				return result ;
+		});
 
 	}
 
-}
+};
 
 
 // We export the helpers function (which contains getGithubInfo)
