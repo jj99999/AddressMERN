@@ -1,7 +1,7 @@
 var express = require('express');
 var mongoose = require("mongoose");
 
-var Storage = require("./app/models/storage2.js");
+var Storage = require("./models/storage2.js");
 
 // Initialize Express
 var app = express();
